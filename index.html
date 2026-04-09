@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internox | Luxury Real Estate Lagos & Abuja | Buy, Sell, Rent</title>
+    <meta name="description" content="Internox is Nigeria's premier modern real estate agency. Discover luxury properties in Lagos and Abuja with AI-driven valuations and immersive virtual tours.">
+    <meta name="keywords" content="real estate Lagos, buy property Nigeria, sell home Abuja, luxury apartments Lagos, Internox real estate">
+    
+    <!-- Preconnect for Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://internox.com/">
+    <meta property="og:title" content="Internox | Luxury Real Estate Nigeria">
+    <meta property="og:description" content="Redefining the real estate experience through data-driven precision and bespoke luxury service.">
+    <meta property="og:image" content="https://picsum.photos/seed/internox-og/1200/630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Internox | Luxury Real Estate Nigeria">
+    <meta property="twitter:description" content="Find your next architectural masterpiece in Lagos or Abuja.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Internox",
+      "image": "https://picsum.photos/seed/internox-logo/200/200",
+      "url": "https://internox.com",
+      "telephone": "+234800INTERNOX",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Victoria Island",
+        "addressLocality": "Lagos",
+        "addressRegion": "LA",
+        "postalCode": "101241",
+        "addressCountry": "NG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 6.4281,
+        "longitude": 3.4219
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
+
+    <style>
+        /* Critical CSS */
+        :root {
+            --primary: #0F172A;
+            --secondary: #D4AF37;
+            --accent: #334155;
+            --bg: #F8F5F0;
+            --text: #1E293B;
+            --white: #FFFFFF;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-300: #CBD5E1;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --space-base: 4px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius-md: 8px;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--text); background: var(--bg); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        button { cursor: pointer; border: none; font-family: inherit; transition: var(--transition); }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .btn { padding: 12px 24px; border-radius: var(--radius-md); font-weight: 500; display: inline-block; }
+        .btn-primary { background: var(--secondary); color: var(--primary); }
+        .btn-primary:hover { background: #c19b2e; transform: translateY(-2px); }
+        .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+
+        /* Skip Link */
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--secondary); color: var(--primary); padding: 8px; z-index: 1001; transition: 0.3s; }
+        .skip-link:focus { top: 0; }
+
+        /* Header */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: transparent; transition: var(--transition); padding: 20px 0; }
+        header.scrolled { background: var(--white); box-shadow: var(--shadow); padding: 12px 0; }
+        header.scrolled .nav-link { color: var(--primary); }
+        header.scrolled .logo { color: var(--primary); }
+
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-size: 24px; color: var(--white); font-weight: 700; letter-spacing: -1px; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-link { color: var(--white); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-link:hover { color: var(--secondary); }
+
+        .hamburger { display: none; flex-direction: column; gap: 6px; background: none; }
+        .hamburger span { width: 25px; height: 2px; background: var(--white); transition: var(--transition); }
+        header.scrolled .hamburger span { background: var(--primary); }
+
+        /* Hero */
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); background: url('https://picsum.photos/seed/luxury-home/1920/1080') center/cover no-referrer; }
+        .hero-overlay { position: absolute; inset: 0; background: rgba(15, 23, 42, 0.6); }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 20px; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards; }
+        .hero h1 { font-size: clamp(40px, 8vw, 72px); margin-bottom: 20px; }
+        .hero p { font-size: 18px; margin-bottom: 40px; opacity: 0.9; }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* Search Bar */
+        .search-bar { background: var(--white); padding: 8px; border-radius: 12px; display: flex; gap: 8px; max-width: 900px; margin: 0 auto; box-shadow: var(--shadow-lg); opacity: 0; transform: translateY(20px); animation: fadeInUp 0.8s 0.3s forwards; }
+        .search-input { flex: 1; display: flex; flex-direction: column; align-items: flex-start; padding: 12px 16px; border-right: 1px solid var(--gray-200); }
+        .search-input:last-of-type { border-right: none; }
+        .search-input label { font-size: 10px; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+        .search-input input, .search-input select { border: none; outline: none; width: 100%; font-size: 14px; color: var(--primary); font-weight: 500; background: transparent; }
+        .search-btn { background: var(--primary); color: var(--white); padding: 0 32px; border-radius: 8px; font-weight: 600; }
+
+        /* Stats Bar */
+        .stats-bar { background: var(--primary); color: var(--white); padding: 60px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+        .stat-item svg { width: 32px; height: 32px; margin-bottom: 16px; color: var(--secondary); }
+        .stat-number { font-size: 36px; font-weight: 700; display: block; margin-bottom: 4px; }
+        .stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+
+        /* Featured Listings */
+        .section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 42px; margin-bottom: 16px; }
+        .section-header p { color: var(--accent); max-width: 600px; margin: 0 auto; }
+
+        .property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 32px; }
+        .property-card { background: var(--white); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); position: relative; }
+        .property-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .property-image { height: 240px; position: relative; overflow: hidden; }
+        .property-image img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .property-card:hover .property-image img { transform: scale(1.1); }
+        .badge { position: absolute; top: 16px; left: 16px; background: var(--secondary); color: var(--primary); padding: 4px 12px; font-size: 12px; font-weight: 600; border-radius: 4px; }
+        .property-info { padding: 24px; }
+        .property-price { font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+        .property-title { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+        .property-location { font-size: 14px; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 4px; }
+        .property-meta { display: flex; gap: 16px; padding-top: 16px; border-top: 1px solid var(--gray-100); font-size: 14px; color: var(--accent); }
+        .property-meta span { display: flex; align-items: center; gap: 6px; }
+
+        /* Why Internox */
+        .why-section { background: var(--white); }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .why-item { text-align: center; }
+        .why-icon { width: 64px; height: 64px; background: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: var(--secondary); }
+        .why-item h3 { margin-bottom: 12px; }
+
+        /* Testimonials */
+        .testimonials { background: var(--primary); color: var(--white); overflow: hidden; }
+        .testimonial-slider { position: relative; max-width: 800px; margin: 0 auto; height: 300px; }
+        .testimonial-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.5s; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .testimonial-slide.active { opacity: 1; }
+        .stars { color: var(--secondary); margin-bottom: 20px; }
+        .quote { font-size: 20px; font-style: italic; margin-bottom: 24px; }
+        .client-info { display: flex; align-items: center; gap: 12px; }
+        .client-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--gray-300); }
+
+        /* Mortgage Calculator */
+        .calculator-card { background: var(--white); padding: 40px; border-radius: 16px; box-shadow: var(--shadow-lg); max-width: 800px; margin: 0 auto; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .calc-inputs { display: flex; flex-direction: column; gap: 20px; }
+        .input-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+        .input-group input { width: 100%; padding: 12px; border: 1px solid var(--gray-200); border-radius: 8px; }
+        .calc-results { text-align: center; display: flex; flex-direction: column; justify-content: center; }
+        .monthly-payment { font-size: 48px; font-weight: 700; color: var(--primary); }
+
+        /* Modal */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal { background: var(--white); padding: 40px; border-radius: 16px; max-width: 500px; width: 100%; position: relative; }
+        .close-modal { position: absolute; top: 20px; right: 20px; font-size: 24px; background: none; }
+        .modal h2 { margin-bottom: 12px; }
+        .modal p { margin-bottom: 24px; color: var(--accent); }
+        .form-group { margin-bottom: 16px; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--gray-200); border-radius: 8px; }
+
+        /* Footer */
+        footer { background: var(--primary); color: var(--white); padding: 80px 0 40px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 60px; margin-bottom: 60px; }
+        .footer-col h4 { margin-bottom: 24px; color: var(--secondary); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; opacity: 0.7; }
+        .footer-links a:hover { opacity: 1; color: var(--secondary); }
+        .newsletter input { width: 100%; padding: 12px; background: rgba(255,255,255,0.1); border: none; border-radius: 8px; color: var(--white); margin-bottom: 12px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; font-size: 14px; opacity: 0.5; }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .search-bar { flex-direction: column; padding: 20px; }
+            .search-input { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 12px 0; }
+            .calc-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">INTERNOX</a>
+                <div class="nav-links">
+                    <a href="#buy" class="nav-link">Buy</a>
+                    <a href="#sell" class="nav-link">Sell</a>
+                    <a href="#rent" class="nav-link">Rent</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#valuation" class="btn btn-primary">Book Valuation</a>
+                </div>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Elevate Your Living Standard</h1>
+                <p>Find your next architectural masterpiece with Nigeria's most trusted real estate partner.</p>
+                
+                <div class="search-bar">
+                    <div class="search-input">
+                        <label>Location</label>
+                        <input type="text" placeholder="Lagos, Abuja...">
+                    </div>
+                    <div class="search-input">
+                        <label>Property Type</label>
+                        <select>
+                            <option>All Types</option>
+                            <option>Apartment</option>
+                            <option>Villa</option>
+                            <option>Penthouse</option>
+                        </select>
+                    </div>
+                    <div class="search-input">
+                        <label>Price Range</label>
+                        <select>
+                            <option>Any Price</option>
+                            <option>₦50M - ₦100M</option>
+                            <option>₦100M - ₦500M</option>
+                            <option>₦500M+</option>
+                        </select>
+                    </div>
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        <span class="stat-number" data-target="1200">0</span>
+                        <span class="stat-label">Properties Sold</span>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span class="stat-number" data-target="3400">0</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <span class="stat-number" data-target="14">0</span>
+                        <span class="stat-label">Cities Covered</span>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span class="stat-number" data-target="12">0</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Listings -->
+        <section class="section" id="buy">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Curated Collections</h2>
+                    <p>Discover hand-picked properties in Lagos and Abuja's most prestigious districts.</p>
+                </div>
+                <div class="property-grid" id="property-grid">
+                    <!-- JS Rendered -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Internox -->
+        <section class="section why-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Internox</h2>
+                    <p>Redefining the real estate experience through data-driven precision.</p>
+                </div>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <div class="why-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Verified Listings</h3>
+                        <p>Every property is 100% vetted for title and condition by our legal team.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <h3>Market Analytics</h3>
+                        <p>Get instant, accurate property values powered by our proprietary data engine.</p>
+                    </div>
+                    <div class="why-item">
+                        <div class="why-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Concierge Service</h3>
+                        <p>A dedicated advisor handles every detail from initial offer to final keys.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 style="color: var(--white)">What Our Clients Say</h2>
+                </div>
+                <div class="testimonial-slider" id="testimonial-slider">
+                    <!-- JS Rendered -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Mortgage Calculator -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Mortgage Calculator</h2>
+                    <p>Estimate your monthly payments for your next investment.</p>
+                </div>
+                <div class="calculator-card">
+                    <div class="calc-grid">
+                        <div class="calc-inputs">
+                            <div class="input-group">
+                                <label>Property Price (₦)</label>
+                                <input type="number" id="calc-price" value="150000000">
+                            </div>
+                            <div class="input-group">
+                                <label>Down Payment (%)</label>
+                                <input type="range" id="calc-down" min="10" max="50" value="20">
+                                <span id="down-val">20%</span>
+                            </div>
+                            <div class="input-group">
+                                <label>Interest Rate (%)</label>
+                                <input type="number" id="calc-rate" value="12" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label>Loan Term (Years)</label>
+                                <select id="calc-term">
+                                    <option value="10">10 Years</option>
+                                    <option value="15">15 Years</option>
+                                    <option value="20" selected>20 Years</option>
+                                    <option value="30">30 Years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="calc-results">
+                            <p>Estimated Monthly Payment</p>
+                            <div class="monthly-payment" id="monthly-payment">₦0</div>
+                            <p style="font-size: 12px; margin-top: 20px; opacity: 0.6;">*Figures are estimates only and subject to lender approval.</p>
+                            <button class="btn btn-primary" style="margin-top: 30px;">Speak to an Advisor</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lead Modal -->
+    <div class="modal-overlay" id="lead-modal">
+        <div class="modal">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <div id="modal-form-content">
+                <h2>Free Property Valuation</h2>
+                <p>Thinking of selling? Get a professional valuation report in 24 hours.</p>
+                <form id="lead-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Property Address" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Get My Valuation</button>
+                </form>
+            </div>
+            <div id="modal-success-content" style="display: none; text-align: center;">
+                <h2>Thank You!</h2>
+                <p>Our valuation experts will contact you shortly.</p>
+                <a href="https://wa.me/234800INTERNOX" class="btn btn-primary" style="background: #25D366; color: white;">Chat on WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="logo" style="color: var(--white); margin-bottom: 20px; display: block;">INTERNOX</a>
+                    <p style="opacity: 0.7; margin-bottom: 24px;">Redefining the real estate experience through data-driven precision and bespoke luxury service in Nigeria's most prestigious markets.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#buy">Buy Property</a></li>
+                        <li><a href="#sell">Sell Property</a></li>
+                        <li><a href="#rent">Rent Property</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>123 Victoria Island, Lagos</li>
+                        <li>+234 800 INTERNOX</li>
+                        <li>concierge@internox.com</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your Email">
+                        <button class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Internox Real Estate. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sticky Header
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Stats Counter
+            const stats = document.querySelectorAll('.stat-number');
+            const observerOptions = { threshold: 0.5 };
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = +entry.target.getAttribute('data-target');
+                        let count = 0;
+                        const increment = target / 50;
+                        const updateCount = () => {
+                            if (count < target) {
+                                count += increment;
+                                entry.target.innerText = Math.ceil(count).toLocaleString() + (target > 100 ? '+' : '');
+                                setTimeout(updateCount, 20);
+                            } else {
+                                entry.target.innerText = target.toLocaleString() + (target > 100 ? '+' : '');
+                            }
+                        };
+                        updateCount();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            stats.forEach(stat => statsObserver.observe(stat));
+
+            // Property Grid
+            const properties = [
+                { id: 1, title: 'The Obsidian Penthouse', location: 'Banana Island, Lagos', price: 450000000, beds: 5, baths: 6, sqft: 4200, img: 'https://picsum.photos/seed/p1/600/400' },
+                { id: 2, title: 'Azure Waterfront Villa', location: 'Victoria Island, Lagos', price: 320000000, beds: 4, baths: 5, sqft: 3800, img: 'https://picsum.photos/seed/p2/600/400' },
+                { id: 3, title: 'Maitama Heights', location: 'Maitama, Abuja', price: 280000000, beds: 4, baths: 4, sqft: 3200, img: 'https://picsum.photos/seed/p3/600/400' },
+                { id: 4, title: 'The Glass House', location: 'Ikoyi, Lagos', price: 550000000, beds: 6, baths: 7, sqft: 5500, img: 'https://picsum.photos/seed/p4/600/400' },
+                { id: 5, title: 'Wuse II Modernist', location: 'Wuse II, Abuja', price: 180000000, beds: 3, baths: 3, sqft: 2400, img: 'https://picsum.photos/seed/p5/600/400' },
+                { id: 6, title: 'Lekki Phase 1 Smart Home', location: 'Lekki, Lagos', price: 120000000, beds: 4, baths: 4, sqft: 2800, img: 'https://picsum.photos/seed/p6/600/400' }
+            ];
+
+            const grid = document.getElementById('property-grid');
+            properties.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'property-card';
+                card.innerHTML = `
+                    <div class="property-image">
+                        <img src="${p.img}" alt="${p.title}" loading="lazy" width="600" height="400">
+                        <span class="badge">For Sale</span>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">₦${p.price.toLocaleString()}</div>
+                        <h3 class="property-title">${p.title}</h3>
+                        <div class="property-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            ${p.location}
+                        </div>
+                        <div class="property-meta">
+                            <span>${p.beds} Beds</span>
+                            <span>${p.baths} Baths</span>
+                            <span>${p.sqft.toLocaleString()} Sqft</span>
+                        </div>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 20px;">View Details</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Testimonials
+            const testimonials = [
+                { name: 'Chidi Okafor', role: 'Tech Founder', text: 'Internox found me a home that mirrors my ambitions. The data-driven approach saved me millions in negotiations.', avatar: 'https://i.pravatar.cc/150?u=1' },
+                { name: 'Amina Bello', role: 'Investor', text: 'The most transparent agency in Abuja. Their virtual tours are so good I bought my third property sight-unseen.', avatar: 'https://i.pravatar.cc/150?u=2' },
+                { name: 'Segun Arinze', role: 'Expat', text: 'Relocating to Lagos was seamless. Their concierge service handled everything from legal to interior design.', avatar: 'https://i.pravatar.cc/150?u=3' }
+            ];
+
+            const slider = document.getElementById('testimonial-slider');
+            testimonials.forEach((t, i) => {
+                const slide = document.createElement('div');
+                slide.className = `testimonial-slide ${i === 0 ? 'active' : ''}`;
+                slide.innerHTML = `
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"${t.text}"</p>
+                    <div class="client-info">
+                        <img src="${t.avatar}" alt="${t.name}" class="client-avatar" width="48" height="48">
+                        <div style="text-align: left">
+                            <div style="font-weight: 600">${t.name}</div>
+                            <div style="font-size: 12px; opacity: 0.7">${t.role}</div>
+                        </div>
+                    </div>
+                `;
+                slider.appendChild(slide);
+            });
+
+            let currentSlide = 0;
+            setInterval(() => {
+                const slides = document.querySelectorAll('.testimonial-slide');
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 5000);
+
+            // Mortgage Calculator
+            const calculateMortgage = () => {
+                const price = +document.getElementById('calc-price').value;
+                const downPercent = +document.getElementById('calc-down').value;
+                const rate = +document.getElementById('calc-rate').value / 100 / 12;
+                const term = +document.getElementById('calc-term').value * 12;
+
+                const principal = price * (1 - downPercent / 100);
+                const x = Math.pow(1 + rate, term);
+                const monthly = (principal * x * rate) / (x - 1);
+
+                document.getElementById('monthly-payment').innerText = `₦${Math.round(monthly).toLocaleString()}`;
+                document.getElementById('down-val').innerText = `${downPercent}%`;
+            };
+
+            ['calc-price', 'calc-down', 'calc-rate', 'calc-term'].forEach(id => {
+                document.getElementById(id).addEventListener('input', calculateMortgage);
+            });
+            calculateMortgage();
+
+            // Lead Modal
+            const modal = document.getElementById('lead-modal');
+            const closeModal = document.getElementById('close-modal');
+            const showModal = () => {
+                if (!localStorage.getItem('modalDismissed')) {
+                    modal.style.display = 'flex';
+                }
+            };
+
+            // Exit Intent
+            document.addEventListener('mouseleave', (e) => {
+                if (e.clientY < 0) showModal();
+            });
+
+            // 30s Timer
+            setTimeout(showModal, 30000);
+
+            closeModal.onclick = () => {
+                modal.style.display = 'none';
+                localStorage.setItem('modalDismissed', 'true');
+            };
+
+            document.getElementById('lead-form').onsubmit = (e) => {
+                e.preventDefault();
+                document.getElementById('modal-form-content').style.display = 'none';
+                document.getElementById('modal-success-content').style.display = 'block';
+            };
+        });
+    </script>
+</body>
+</html>
